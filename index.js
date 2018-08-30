@@ -30,12 +30,6 @@ const texasss = [{
     us: true,
   },
 ]
-
-// Part 1 - Find all users older than 24
-// Part 2 - Find the total age of all users
-// Part 3 - List all female coders
-
-// ARRAY 2
 const newieyork = [{
     name: 'Michelle',
     age: 19,
@@ -73,12 +67,6 @@ const newieyork = [{
   },
 ]
 
-// Part 1 - List all users in US in ascending order
-// Part 2 - Sort all users by age
-// Part 3 -  List all female coders
-
-
-// ARRAY 3
 const vegzas = [{
     name: 'Charly',
     age: 32,
@@ -111,8 +99,61 @@ const vegzas = [{
   },
 ]
 
+const superData = Array.prototype.push.apply(texasss, newieyork, vegzas);
+
+console.log(superData)
+
+// Function Definition
+
+// Part 1 - Find all users older than 24
+
+function usersOlderThan24 (users) {
+  var olderUsers = [];
+  for (var i = 0; i < users.length; i++) {
+    if (users[i].age <= 24) {
+      continue;
+    }
+    olderUsers.push(users[i]);
+  }
+  console.log(olderUsers)
+}
+
+// Part 2 - Find the total age of all users
+
+function findTotalAgeOfUsers (users) {
+  let totalAge = 0;
+  for (var i = 0; i < users.length; i++) {
+    totalAge = totalAge + users[i].age;
+  }
+}
+
+// Part 3 - List all female coders
+
+function findAllFemales (users) {
+  var femaleCoders = [];
+  for (var i = 0; i < users.length; i++) {
+    if (users[i].gender === 'm' || !users[i].coder) {
+      continue;
+    }
+    femaleCoders.push(users[i]);
+  }
+  console.log(femaleCoders)
+}
+
+
+
+// Part 1 - List all users in US in ascending order
+// Part 2 - Sort all users by age
+// Part 3 -  List all female coders
+
+
 // Part 1 - Find the total age of male coders under 25
-
-
 // Part 2 - List all male coders over 30
 // Part 3 - Find the total age of everyone in texasss, newieyork and vegzas combined.
+
+// Execution
+usersOlderThan24(texasss);
+findTotalAgeOfUsers(texasss);
+findAllFemales(texasss);
+findAllFemales(newieyork);
+
